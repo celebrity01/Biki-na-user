@@ -1,0 +1,75 @@
+# User Webpage Project Overview: "Biki Na" User Portal
+
+**Role:** You are an expert Software Engineer and AI Assistant. Your task is to build the dedicated **User Portal** for the "Biki Na" Nigerian Wedding Planner application.
+
+**Context:** The admin portal (used for managing global data like price bounds, event descriptions, and vendor catalogs) already exists in a separate repository. This new application is specifically for the **engaged couples (users)** to plan their own weddings.
+
+**Tech Stack:**
+* **Framework:** Next.js 14 (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS + Framer Motion (Modern Dark Theme: Background `#0D0D0F`, Accents `#C8963E`)
+* **Backend/Database:** Supabase
+* **Auth:** Supabase Auth
+
+---
+
+## Core Features to Implement
+
+### 1. User Registration & Authentication
+* Implement a secure sign-up and login flow using Supabase Auth.
+* Users should be able to register with Email/Password or OAuth (Google).
+* **Database Setup:** When a user registers, create a record in a `user_profiles` table linking their `auth.uid` to their specific wedding details (Partner Names, Wedding Date, etc.).
+* All subsequent data (Budgets, Events, Guests) must be tied to the authenticated user's ID using Row Level Security (RLS) policies in Supabase to ensure data privacy.
+
+### 2. The Dashboard (Home)
+* A personalized welcome screen showing the couple's names and a live countdown timer to their wedding date.
+* High-level summaries of their planning progress (Total Budget vs. Spent, Tasks Completed, Expected Guest Count).
+
+### 3. Simplified Guest Page
+* **Requirement:** Unlike traditional apps where users input every single guest's name, this app requires a simplified approach.
+* The user should only have an input field to enter their **"Total Expected Guest Count"** (e.g., 500).
+* **Why?** This number will be used globally across the app to automatically calculate catering costs, venue sizing, and invitation requirements in the AI Budget Generator.
+
+### 4. AI Venue & Location Selector (New Feature)
+* **Flow:** The user selects their **State** and **Local Government Area (LGA)** in Nigeria from dropdowns.
+* **AI Action:** Based on the State and LGA, the AI (or a query to the Supabase database) should list available, realistic wedding event locations/venues in that area.
+* The list should display:
+  * Venue Name
+  * Estimated Price Range (e.g., ₦500k - ₦1.5m)
+  * Maximum Capacity
+* **Action:** The user can select a venue from this list, which automatically adds it to their Budget and updates their Event page.
+
+### 5. Event Planning Page
+* Users can view and manage their specific wedding events (e.g., Introduction, Traditional Wedding, White Wedding, Reception).
+* They should be able to pull from a pre-defined list of Nigerian cultural events (Yoruba, Igbo, Hausa, etc.) or create custom ones.
+* Each event needs a date, time, and assigned venue (from the Venue Selector).
+
+### 6. AI-Powered Budget Page
+* Displays the user's allocated budget across categories.
+* **The "AI Budget Generator":** A core feature where the user inputs their *Total Budget Amount*. The AI automatically distributes this total across categories (Venue, Food, Outfits, Photography, etc.) based on real-world Nigerian wedding costs and the user's previously inputted *Guest Count*.
+* Allow users to manually adjust the AI-generated numbers (e.g., adding actual money paid vs. estimated costs).
+
+---
+
+## Suggested Additional Features (Future Scope)
+
+To make the User Portal truly premium, consider adding these features once the core is complete:
+
+1. **Export/Share Feature:** A button to generate a beautiful PDF summary of their budget and timeline to share with family members or wedding planners.
+2. **Interactive Checklist:** A timeline-based checklist (12 months out, 6 months out, 1 week out) that users can check off as they complete tasks.
+3. **Vendor Inspiration Board:** A Pinterest-style grid where users can save links or images of vendors they like before officially booking them.
+4. **Multi-Language Support:** Allow the couple to switch the interface between English, Yoruba, Hausa, and Igbo (reusing the existing translation dictionaries from the admin portal).
+
+---
+
+## Database Architecture Requirements (Supabase)
+
+The AI Agent must ensure the following tables are created (with RLS enabled) in the Supabase project:
+
+1. `user_profiles`: `id` (references `auth.users`), `partner_1_name`, `partner_2_name`, `wedding_date`, `total_guest_count`, `state`, `lga`.
+2. `user_events`: `id`, `user_id`, `event_name`, `date`, `time`, `venue_id`, `status`.
+3. `user_budgets`: `id`, `user_id`, `category`, `estimated_cost`, `actual_cost`, `paid_amount`, `vendor_name`.
+4. `venues_catalog` (Admin controlled, read-only for users): `id`, `name`, `state`, `lga`, `base_price`, `max_capacity`, `description`.
+
+---
+**Instruction to AI Agent:** Please begin by setting up the Next.js project, configuring Supabase Auth, and building the Registration/Login flow. Once authenticated, proceed to build the Dashboard and the Simplified Guest Page.
