@@ -1,7 +1,16 @@
 {
-  "name": "biki-na-static",
+  "name": "biki-na-fullstack",
   "version": "1.0.0",
   "scripts": {
-    "build": "mkdir -p dist && cp *.html dist/"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
   }
 }
