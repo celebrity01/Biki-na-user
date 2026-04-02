@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react
 import { Calculator, Save, User, MapPin, Users, Calendar, AlertCircle, ArrowRight, Store } from 'lucide-react';
 import { supabase } from './supabase';
 
-// Types
 type Category = {
   id: string;
   name: string;
@@ -55,7 +54,6 @@ const CalculatorPage = () => {
     setSaveMessage('');
 
     try {
-      // Fetch prices for the selected city
       const { data: pricesData, error } = await supabase
         .from('prices')
         .select(`
@@ -68,10 +66,9 @@ const CalculatorPage = () => {
 
       if (error) throw error;
 
-      // Group by category, finding the lowest min_price
       const categoryMap = new Map<string, Price>();
       (pricesData as unknown as Price[]).forEach((p) => {
-        if (!p.category) return; // safety
+        if (!p.category) return;
         const existing = categoryMap.get(p.category.id);
         if (!existing || p.min_price < existing.min_price) {
           categoryMap.set(p.category.id, p);
@@ -93,7 +90,6 @@ const CalculatorPage = () => {
 
       setBreakdown(newBreakdown);
 
-      // Fetch AI advice
       setCalculatingAdvice(true);
       const { data: aiData, error: aiError } = await supabase.functions.invoke('budget-advice', {
         body: { total_budget: totalBudget, date, guest_count: guestCount, city, breakdown: newBreakdown }
@@ -144,52 +140,59 @@ const CalculatorPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-teal-800">Northern Wedding Budget Calculator</h1>
-        <p className="mt-2 text-gray-600">Plan your special day with real wholesale prices in {city}</p>
+    <div className="max-w-4xl mx-auto space-y-16">
+      
+      {/* Hero Header */}
+      <div className="text-left md:w-3/4">
+        <h1 className="font-display text-5xl md:text-6xl text-on-surface leading-tight tracking-tight">
+          The Royal Nuptial Standard
+        </h1>
+        <p className="font-body text-primary text-lg mt-4">
+          Plan your celebration with real wholesale prices in {city}.
+        </p>
       </div>
 
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <form onSubmit={calculateBudget} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Input Form (Surface Container Lowest - Elevated) */}
+      <div className="bg-surface-container-lowest p-8 rounded-xl shadow-ambient">
+        <form onSubmit={calculateBudget} className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           <div className="space-y-2">
-            <label className="flex items-center text-sm font-medium text-gray-700">
+            <label className="flex items-center text-sm font-body font-medium text-on-surface-variant">
               <Calculator className="w-4 h-4 mr-2" /> Total Budget (₦)
             </label>
             <input type="number" required min="10000" value={totalBudget} onChange={(e) => setTotalBudget(Number(e.target.value))} 
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" />
+              className="w-full p-4 bg-surface-container-low text-on-surface border-b border-outline-variant focus:outline-none focus:border-primary font-body transition-colors" />
           </div>
 
           <div className="space-y-2">
-            <label className="flex items-center text-sm font-medium text-gray-700">
+            <label className="flex items-center text-sm font-body font-medium text-on-surface-variant">
               <Calendar className="w-4 h-4 mr-2" /> Wedding Date
             </label>
             <input type="date" required value={date} onChange={(e) => setDate(e.target.value)} 
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" />
+              className="w-full p-4 bg-surface-container-low text-on-surface border-b border-outline-variant focus:outline-none focus:border-primary font-body transition-colors" />
           </div>
 
           <div className="space-y-2">
-            <label className="flex items-center text-sm font-medium text-gray-700">
+            <label className="flex items-center text-sm font-body font-medium text-on-surface-variant">
               <Users className="w-4 h-4 mr-2" /> Guest Count
             </label>
             <input type="number" required min="10" value={guestCount} onChange={(e) => setGuestCount(Number(e.target.value))} 
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" />
+              className="w-full p-4 bg-surface-container-low text-on-surface border-b border-outline-variant focus:outline-none focus:border-primary font-body transition-colors" />
           </div>
 
           <div className="space-y-2">
-            <label className="flex items-center text-sm font-medium text-gray-700">
+            <label className="flex items-center text-sm font-body font-medium text-on-surface-variant">
               <MapPin className="w-4 h-4 mr-2" /> Location
             </label>
             <select value={city} onChange={(e) => setCity(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500">
+              className="w-full p-4 bg-surface-container-low text-on-surface border-b border-outline-variant focus:outline-none focus:border-primary font-body transition-colors">
               {cities.map(c => <option key={c} value={c}>{c}</option>)}
             </select>
           </div>
 
-          <div className="md:col-span-2 pt-4">
+          <div className="md:col-span-2 pt-6">
             <button type="submit" disabled={loading}
-              className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex justify-center items-center">
+              className="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-body font-medium py-4 px-6 rounded-md shadow-ambient transition hover:scale-[1.01] flex justify-center items-center">
               {loading ? 'Calculating with Live Data...' : 'Calculate Breakdown'}
             </button>
           </div>
@@ -197,38 +200,43 @@ const CalculatorPage = () => {
       </div>
 
       {breakdown && (
-        <div className="space-y-6">
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-             <div className="bg-gray-50 p-6 border-b border-gray-100 flex justify-between items-center">
-               <h2 className="text-xl font-bold text-gray-800">Cost Breakdown Estimate</h2>
-               <button onClick={saveBudget} className="flex items-center text-teal-600 hover:text-teal-800 font-medium">
-                  <Save className="w-4 h-4 mr-1" /> Save & Return
+        <div className="space-y-16">
+          
+          {/* Breakdown Section */}
+          <div className="bg-surface-container-lowest rounded-xl shadow-ambient overflow-hidden">
+             <div className="bg-surface-container-low p-8 flex justify-between items-center">
+               <h2 className="font-display text-3xl text-on-surface">Cost Estimate</h2>
+               <button onClick={saveBudget} className="flex items-center text-primary font-body font-medium hover:opacity-80 transition">
+                  <Save className="w-4 h-4 mr-2" /> Save & Return
                </button>
              </div>
-             {saveMessage && <div className="p-4 bg-green-50 text-green-700 text-sm text-center font-medium">{saveMessage}</div>}
+             {saveMessage && <div className="p-4 bg-primary-container text-on-surface text-sm text-center font-body">{saveMessage}</div>}
              
-             <div className="divide-y divide-gray-100">
+             <div className="flex flex-col gap-6 p-8 bg-surface">
                 {breakdown.length === 0 && (
-                  <p className="p-6 text-center text-gray-500">No pricing data available for this city yet.</p>
+                  <p className="text-center font-body text-on-surface-variant">No pricing data available for this city yet.</p>
                 )}
                 {breakdown.map((item, i) => {
                   const percentMin = ((item.minEstimated / totalBudget) * 100).toFixed(1);
                   const isOver = item.minEstimated > totalBudget;
+                  // Alternating background for items as per "No-Line" rule
+                  const bgClass = i % 2 === 0 ? 'bg-surface-container-low' : 'bg-surface-container';
+                  
                   return (
-                    <div key={i} className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-gray-50">
+                    <div key={i} className={`p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 rounded-xl ${bgClass}`}>
                       <div>
-                        <h3 className="font-bold text-gray-800">{item.categoryName}</h3>
-                        <p className="text-sm text-gray-500 mt-1 flex items-center">
-                           <Store className="w-3 h-3 mr-1"/>
+                        <h3 className="font-display text-xl text-on-surface">{item.categoryName}</h3>
+                        <p className="font-body text-sm text-on-surface-variant mt-2 flex items-center">
+                           <Store className="w-4 h-4 mr-2"/>
                            {formatNaira(item.minPricePerUnit)} - {formatNaira(item.maxPricePerUnit)} {item.isPerHead ? 'per head' : ''}
-                           <span className="ml-2 text-xs bg-gray-100 px-2 py-1 rounded">As of {new Date(item.effectiveDate).toLocaleDateString()}</span>
+                           <span className="ml-3 text-xs bg-surface-container-lowest px-3 py-1 rounded-full text-on-surface">As of {new Date(item.effectiveDate).toLocaleDateString()}</span>
                         </p>
                       </div>
                       <div className="text-right">
-                         <div className={`text-lg font-bold ${isOver ? 'text-red-600' : 'text-gray-800'}`}>
+                         <div className={`font-display text-2xl ${isOver ? 'text-red-700' : 'text-on-surface'}`}>
                            {formatNaira(item.minEstimated)} - {formatNaira(item.maxEstimated)}
                          </div>
-                         <div className="text-sm text-gray-500 mt-1">
+                         <div className="font-body text-sm text-primary mt-1">
                             {percentMin}% of total budget
                          </div>
                       </div>
@@ -238,29 +246,27 @@ const CalculatorPage = () => {
              </div>
 
              {/* Vendor CTA */}
-             <div className="p-6 bg-teal-50 border-t border-teal-100 flex flex-col md:flex-row items-center justify-between">
+             <div className="p-8 bg-surface-container-highest flex flex-col md:flex-row items-center justify-between">
                 <div>
-                  <h4 className="font-bold text-teal-900">Ready to start booking?</h4>
-                  <p className="text-teal-700 text-sm mt-1">Connect directly with verified wholesalers in {city} to lock in these prices.</p>
+                  <h4 className="font-display text-2xl text-on-surface">Ready to start booking?</h4>
+                  <p className="font-body text-on-surface-variant mt-2">Connect directly with verified wholesalers in {city}.</p>
                 </div>
-                <button className="mt-4 md:mt-0 bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-lg font-medium flex items-center">
+                <button className="mt-6 md:mt-0 bg-primary text-on-primary font-body px-8 py-3 rounded-md font-medium flex items-center transition hover:opacity-90 shadow-ambient">
                   Get Quotes <ArrowRight className="w-4 h-4 ml-2" />
                 </button>
              </div>
           </div>
 
           {/* AI Advice Panel */}
-          <div className="bg-indigo-50 rounded-2xl shadow-sm border border-indigo-100 p-6">
-            <h2 className="text-xl font-bold text-indigo-900 flex items-center mb-4">
-               <AlertCircle className="w-5 h-5 mr-2 text-indigo-600" /> AI Budget Advice
+          <div className="bg-surface-container rounded-xl p-8 relative overflow-hidden">
+            <h2 className="font-display text-3xl text-secondary flex items-center mb-6">
+               <AlertCircle className="w-6 h-6 mr-3" /> Expert Advice
             </h2>
-            <div className="text-indigo-800 bg-white p-4 rounded-xl border border-indigo-50 shadow-sm whitespace-pre-wrap">
+            <div className="font-body text-on-surface text-lg bg-surface-container-lowest p-6 rounded-xl shadow-ambient whitespace-pre-wrap leading-relaxed">
                {calculatingAdvice ? (
-                 <div className="animate-pulse flex space-x-4">
-                   <div className="flex-1 space-y-4 py-1">
-                     <div className="h-4 bg-indigo-200 rounded w-3/4"></div>
-                     <div className="h-4 bg-indigo-200 rounded w-1/2"></div>
-                   </div>
+                 <div className="animate-pulse space-y-4">
+                   <div className="h-4 bg-outline-variant/30 rounded w-3/4"></div>
+                   <div className="h-4 bg-outline-variant/30 rounded w-1/2"></div>
                  </div>
                ) : (
                  aiAdvice || "Submit your details to get personalized budget advice based on local trends."
@@ -299,26 +305,26 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mt-12">
-      <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">{isSignUp ? 'Create Account' : 'Sign In'}</h2>
-      {error && <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-4 text-sm">{error}</div>}
-      <form onSubmit={handleAuth} className="space-y-4">
+    <div className="max-w-md mx-auto bg-surface-container-lowest p-10 rounded-xl shadow-ambient mt-16">
+      <h2 className="font-display text-4xl text-center text-on-surface mb-8">{isSignUp ? 'Join Us' : 'Welcome Back'}</h2>
+      {error && <div className="bg-red-50 text-red-700 p-4 rounded-md mb-6 font-body text-sm">{error}</div>}
+      <form onSubmit={handleAuth} className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+          <label className="block font-body text-sm font-medium text-on-surface-variant mb-2">Email Address</label>
           <input type="email" required value={email} onChange={e => setEmail(e.target.value)} 
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" />
+            className="w-full p-4 bg-surface-container-low text-on-surface border-b border-outline-variant focus:outline-none focus:border-primary font-body transition-colors" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <label className="block font-body text-sm font-medium text-on-surface-variant mb-2">Password</label>
           <input type="password" required value={password} onChange={e => setPassword(e.target.value)} 
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" />
+            className="w-full p-4 bg-surface-container-low text-on-surface border-b border-outline-variant focus:outline-none focus:border-primary font-body transition-colors" />
         </div>
-        <button type="submit" className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 rounded-lg transition duration-200">
-          {isSignUp ? 'Sign Up' : 'Sign In'}
+        <button type="submit" className="w-full bg-primary text-on-primary font-body font-medium py-4 rounded-md shadow-ambient transition hover:opacity-90">
+          {isSignUp ? 'Create Account' : 'Sign In'}
         </button>
       </form>
-      <div className="mt-6 text-center">
-        <button onClick={() => setIsSignUp(!isSignUp)} className="text-teal-600 hover:text-teal-800 text-sm font-medium">
+      <div className="mt-8 text-center">
+        <button onClick={() => setIsSignUp(!isSignUp)} className="font-body text-primary hover:text-on-surface transition text-sm font-medium">
           {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
         </button>
       </div>
@@ -345,26 +351,30 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
-        <nav className="bg-white border-b border-gray-200 py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 z-10 shadow-sm">
-          <Link to="/" className="text-2xl font-bold text-teal-600 flex items-center">
-            💍 Biki Na
+      {/* Background set to surface */}
+      <div className="min-h-screen bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-surface pb-24">
+        
+        {/* Glassmorphism Navigation */}
+        <nav className="bg-surface/70 backdrop-blur-md py-6 px-8 md:px-16 flex justify-between items-center sticky top-0 z-50 transition-all">
+          <Link to="/" className="font-display text-3xl font-bold text-primary flex items-center">
+            Biki Na
           </Link>
           <div>
             {session ? (
-              <div className="flex items-center space-x-4">
-                <span className="text-sm text-gray-600 hidden md:inline">{session.user.email}</span>
-                <button onClick={() => supabase.auth.signOut()} className="text-sm font-medium text-gray-600 hover:text-red-600">Sign Out</button>
+              <div className="flex items-center space-x-6">
+                <span className="font-body text-sm text-on-surface-variant hidden md:inline">{session.user.email}</span>
+                <button onClick={() => supabase.auth.signOut()} className="font-body text-sm font-medium text-on-surface-variant hover:text-red-700 transition">Sign Out</button>
               </div>
             ) : (
-              <Link to="/login" className="flex items-center text-sm font-medium text-teal-600 hover:text-teal-800 bg-teal-50 px-4 py-2 rounded-lg">
+              <Link to="/login" className="flex items-center font-body text-sm font-medium text-primary hover:text-on-surface transition bg-surface-container-highest px-5 py-2.5 rounded-md">
                 <User className="w-4 h-4 mr-2" /> Sign In
               </Link>
             )}
           </div>
         </nav>
         
-        <main className="p-6 md:p-12">
+        {/* Main Content Area */}
+        <main className="px-6 md:px-16 pt-12">
           <Routes>
             <Route path="/" element={<CalculatorPage />} />
             <Route path="/login" element={<LoginPage />} />
