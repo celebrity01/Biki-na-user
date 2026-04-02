@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#002a58",
+                        "on-primary-container": "#83aef5",
+                        "primary-container": "#004080",
+                        "on-primary-fixed-variant": "#0e4686",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e4e3db",
+                        "surface-container-low": "#f5f4ec",
+                        "on-surface": "#1b1c17",
+                        "tertiary": "#735c00",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e4e3db",
+                        "background": "#fbf9f1",
+                        "inverse-surface": "#30312c",
+                        "surface-container-high": "#eae8e0",
+                        "on-secondary-fixed-variant": "#822800",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-secondary-fixed": "#380c00",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffe088",
+                        "inverse-on-surface": "#f3f1e9",
+                        "on-background": "#1b1c17",
+                        "secondary-fixed-dim": "#ffb59c",
+                        "secondary-fixed": "#ffdbcf",
+                        "surface-container": "#f0eee6",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a9c7ff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#6b1f00",
+                        "outline": "#737781",
+                        "surface-bright": "#fbf9f1",
+                        "tertiary-container": "#cca72f",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#305ea0",
+                        "on-primary-fixed": "#001b3d",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "surface": "#fbf9f1",
+                        "on-tertiary-fixed": "#241a00",
+                        "secondary": "#a43c12",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-surface-variant": "#424750",
+                        "primary-fixed": "#d6e3ff",
+                        "secondary-container": "#fe7e4f",
+                        "outline-variant": "#c3c6d2",
+                        "surface-dim": "#dcdad2",
+                        "on-tertiary-container": "#4e3d00"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .ankara-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 30-15 30L15 30z' fill='%23a43c12' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f1]/70 dark:bg-[#1b1c17]/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-bold text-[#002a58] dark:text-[#fbf9f1] tracking-tighter font-headline">The Royal Nuptial</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-['Noto_Serif'] text-base tracking-wide">
+<a class="text-[#a43c12] font-bold" href="#">Marketplace</a>
+<a class="text-[#002a58] dark:text-[#fbf9f1] hover:text-[#a43c12] transition-colors" href="#">Ceremonies</a>
+<a class="text-[#002a58] dark:text-[#fbf9f1] hover:text-[#a43c12] transition-colors" href="#">Planner</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">favorite</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile avatar for 65 Days to Ido-Oba" data-alt="Close-up portrait of a stylish Nigerian woman wearing a vibrant headwrap with soft lighting and professional studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADLOBQPAa9jYN0qDIld3F1lY8IVpuVx4g7VLgdURj6YsXAowmnBYPXMv-2DdfZlyNFaN_xpP9o_2Yn3rUi1Uwny2sTHn3hKY-iD35GdvKSFcCVvWaf0O5ykmzzhB3UxulFjmkz3EvPEmYrVBvF_u8Yg2XHxv3PvufnDFnAyBPk_yTc4ANFkAPnVBLcIUbf4L-KcDRDn1rB5IBmsLEZHPyBWeLSITsU3SY9yGv_c-9_6LLCOEnncxuetnrDwF6DAFLFCuIrE6A2Pn-X"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Side Navigation (Web) -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full p-6 bg-[#fbf9f1] dark:bg-[#1b1c17] w-64 z-40 pt-24">
+<div class="mb-10">
+<h2 class="font-headline text-xl text-[#002a58] dark:text-[#fbf9f1]">The Royal Nuptial</h2>
+<p class="text-xs text-primary/60 font-semibold tracking-widest uppercase">65 Days to Ido-Oba</p>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#002a58]/70 dark:text-[#fbf9f1]/70 hover:bg-[#f5f4ec] transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Manrope'] text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#a43c12] font-bold border-r-4 border-[#a43c12] bg-[#f5f4ec] dark:bg-[#25261d]" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-['Manrope'] text-sm">Marketplace</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#002a58]/70 dark:text-[#fbf9f1]/70 hover:bg-[#f5f4ec] transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Manrope'] text-sm">Budget</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#002a58]/70 dark:text-[#fbf9f1]/70 hover:bg-[#f5f4ec] transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-['Manrope'] text-sm">Guest List</span>
+</a>
+</nav>
+</aside>
+<main class="lg:ml-64 pt-24 pb-32 px-6 md:px-12">
+<!-- Hero Section -->
+<header class="mb-12 relative overflow-hidden rounded-3xl bg-primary h-[300px] flex items-center px-10">
+<div class="absolute inset-0 opacity-20 ankara-pattern scale-150"></div>
+<div class="relative z-10 max-w-2xl">
+<p class="font-label text-tertiary-fixed font-extrabold uppercase tracking-[0.2em] mb-4">The Royal Marketplace</p>
+<h1 class="font-headline text-4xl md:text-6xl text-white mb-6 leading-tight">Curation of Nigerian <br/><span class="italic text-secondary-fixed">Master Artisans</span></h1>
+<div class="flex gap-4">
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded-xl font-bold hover:brightness-110 transition-all flex items-center gap-2">
+<span>Discover Talents</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 hidden md:block">
+<img alt="Nigerian wedding reception decor" class="h-full w-full object-cover opacity-80" data-alt="Exquisite Nigerian wedding reception setup with luxury floral arrangements, gold accents, and traditional royal blue drapery in warm candlelit atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ8v6xlZJ7dSwTRcxD0uOPSoXRSzDKczmKcTR7NDEDoMnHfqVkw4Pb-2ZSiGh9dbH0fbQmBDhHSPgGwgKY6oqlbgHvEVxBPin4G3KwDQJOs3_gJajarVndkTWg4vWlkwWxvFaTVyqfXF1qtjBN_FOi_r6rksoW80EsO4OwvsNrjBtEx6WRWftw7YL76_ygbEep5Ivzzes-UNz5DCf72nNo3rLs0V6PFTWWHU9Mtf5pbpBLyu7yHWLOKM4ant024fRQAlF2Aineq8RN"/>
+</div>
+</header>
+<!-- Artisans of the Week -->
+<section class="mb-16">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline text-3xl text-primary">Artisans of the Week</h2>
+<p class="text-on-surface-variant font-label tracking-wide">Handpicked creators defining this season's trends</p>
+</div>
+<a class="text-tertiary font-headline font-bold underline underline-offset-4 decoration-2 hover:text-secondary transition-colors" href="#">View All Directory</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Artisan 1 -->
+<div class="group relative bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
+<div class="h-64 overflow-hidden relative">
+<img alt="Traditional Caterers" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close-up of vibrant Nigerian traditional wedding food including Jollof rice and plantain served on elegant gold-rimmed ceramic plates" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyvacYyHI8cIVEyd0GmcX8dg41pvewoQvZLgHh5Wv-FboRuzEbl6oPGnBPynYFg0MNXs14GR9bPoqYJoGmQlrDgQxRs02-irLtkki3-i7DRCxyzlegcXmeN6Nx3WbCeaSrW9cfxMOEKGOXoMOVXaiouIpGQkT56HNf6PzJ9iRk4jSWA15XPgTBzEDqYHM6JnUWctILgKalenhXRbkj6FH6anxYppVDFXmX7EvGS6miYZwODziow_AcsOhkrSOYaXhh09oXE42mnBTm"/>
+<div class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Heritage Silks</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline text-xl text-primary mb-2">Heritage Silks</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Exquisite hand-woven Aso Oke and custom bridal George fabrics.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="flex items-center text-tertiary font-bold"><span class="material-symbols-outlined text-sm mr-1" style="font-variation-settings: 'FILL' 1;">star</span> 4.9</span>
+<span class="text-xs font-bold text-primary/50">Lagos &amp; Ogun</span>
+</div>
+</div>
+</div>
+<!-- Artisan 2 -->
+<div class="group relative bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
+<div class="h-64 overflow-hidden relative">
+<img alt="Alagas &amp; MCs" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Traditional Nigerian Alaga sitting with ceremonial items at a Yoruba wedding, rich cultural atmosphere and colorful attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbD4JD6OeRh6NoYCzJGwbp7J2LHl1a-BbjReZYY6RcutAr6Ou1RWmKHQbeCXgYHVnA5AcvH5jL_K3-Gj9jhjZdQ5ZVV6-D0WcRMODQzXBYmCF_NzQW6jDz_Hcg0ifbYFUS2esvsBh3kvRdhC6XrMYSXUwIcOE9sBg-SejNZJcJqCjbIeDbJO7tBRAnUhNLhzYvmUFVHf-v77zuSEIrp4jhPcB90eCab59aHxFrVKeDoC4mxiBStFnDyhN7Y9VUHicyZ1W22AKedraE"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Alagas &amp; MCs</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline text-xl text-primary mb-2">The Ariya Master</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Injecting soul and tradition into every Yoruba engagement ceremony.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="flex items-center text-tertiary font-bold"><span class="material-symbols-outlined text-sm mr-1" style="font-variation-settings: 'FILL' 1;">star</span> 5.0</span>
+<span class="text-xs font-bold text-primary/50">Lagos State</span>
+</div>
+</div>
+</div>
+<!-- Artisan 3 -->
+<div class="group relative bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
+<div class="h-64 overflow-hidden relative">
+<img alt="Live Bands" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Dynamic shot of a highlife live band performing at a luxury event with colorful stage lighting and traditional instruments" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMadINyColAqrFTvhyQLHbhasPcKP05rnzRVp7yj-VHgV6vX3-P92l2oIDAdte5y8DZ3PJElobs9hvaMxvfOkP3NuwNLcVVHSgnBb5s4W09j-WhspkhFPjxIcpapNH5q7dAr6_t_rPPfSnrfDhYXNnl-LDt_OCQ7fGIjgPQK2eo1YBgLBS00Wxp9_75wUPoObcd7rYrzYYLdGyfDO-u_tpB09qhmCsxlr3HhcrckmsPTbJgBn4_l0df3tde7Klpptjr91YwcP3gmNw"/>
+<div class="absolute top-4 left-4 bg-tertiary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Live Bands</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline text-xl text-primary mb-2">Highlife Kings</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Premier orchestral ensemble blending contemporary hits with traditional Afro-beats.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="flex items-center text-tertiary font-bold"><span class="material-symbols-outlined text-sm mr-1" style="font-variation-settings: 'FILL' 1;">star</span> 4.8</span>
+<span class="text-xs font-bold text-primary/50">Abuja &amp; Environs</span>
+</div>
+</div>
+</div>
+<!-- Artisan 4 -->
+<div class="group relative bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
+<div class="h-64 overflow-hidden relative">
+<img alt="Traditional Caterers" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Platter of gourmet small chops and traditional Nigerian appetizers arranged on a silver tray at a luxury wedding banquet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQP7oONvbZUBCPazuVfLiEz0dSlBp8vmRN7juDYKoHAx5u6ojN7n0OvNcSb2wmUAB5xOJ9jH8m-dJBBKBdrNuH7Vi85xNxO4QiILV3HpWDjrWzxUsftLhV2xtWtRjpo1b26m2iu6T5BrywaS0CL3QQinde-vIP09n-eiw2ApYqWSfeEy1LYVUqrAZVcPOtgvIeCURZvr_p2J0VnT8Kmhxehz1NU_rD2RSnwfw9SvxBeOssthnBqP_IgYr_XfA4iarXwfGm3G2ZLB2p"/>
+<div class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Royal Catering</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline text-xl text-primary mb-2">Small Chops HQ</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Elevated traditional cuisine and experimental Nigerian fusion appetizers.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="flex items-center text-tertiary font-bold"><span class="material-symbols-outlined text-sm mr-1" style="font-variation-settings: 'FILL' 1;">star</span> 4.7</span>
+<span class="text-xs font-bold text-primary/50">Lagos &amp; Ogun</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cultural Collections -->
+<section class="mb-16">
+<h2 class="font-headline text-2xl text-primary mb-8 border-l-4 border-secondary pl-4">Heritage Specialist Collections</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Yoruba -->
+<div class="group relative h-80 rounded-3xl overflow-hidden">
+<img alt="Yoruba Wedding" class="absolute inset-0 w-full h-full object-cover" data-alt="Vibrant Yoruba wedding ceremony with guests in purple and gold aso-ebi, dancing with joyful expressions under decorative flowers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDixi_dCIE55nA2wqHPeGcO0hJTAkHpFv4mxWDKsVz-1pov1RALJ7YNxiNEKtcGmFkZBkGvLTLU_7eav4deiIZx663aXCCm9ERoNl5SCHsYvrvkVMLWFCbiHvgobgRl-3Uf1fF_uMlpAQ5yoNjArW44FdcXvxLcjKOhSJWvjaKZl9zYzRV0IfkqLPUNyRGM7r-6J60k0FCNJftjPAjAsfY_K3DnuEDYDs07kAH6Uolqzy1YFpW51FXy0Bhwv2X3NDl3QdJXZ7WGL5Sp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex flex-col justify-end p-8">
+<span class="text-tertiary-fixed text-xs font-bold tracking-[0.3em] uppercase mb-2">Eko Style</span>
+<h3 class="font-headline text-2xl text-white">The Yoruba Edit</h3>
+<p class="text-white/70 text-sm mb-4">Gele artists, Alagas, and Aso-Oke weavers.</p>
+<button class="w-fit text-white font-bold flex items-center gap-2 group-hover:gap-4 transition-all">Explore Traditions <span class="material-symbols-outlined">trending_flat</span></button>
+</div>
+</div>
+<!-- Igbo -->
+<div class="group relative h-80 rounded-3xl overflow-hidden">
+<img alt="Igbo Wedding" class="absolute inset-0 w-full h-full object-cover" data-alt="Dignified Igbo groom in traditional Isiagu attire with coral beads and a red cap, regal and elegant posture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuBa1ZDh-4Twnm6-j5ZICdzG67JQ2HeqDXR66ea5rhS7CB4NcnJTiJxZ-ghovHuqnSCMfhWmX7Qoew8f0YEzYnIsGwntXKoeoB1khkZn27QW3cJoKtenkGWIcYDKWW6cYGwcm_5uG_ILCZhdCFzrmU0Gux-C3ivvPCIdPLAINdCQVDtwHUdaJgjoaP9ohT1gKDIM9ZrprvfThEJh-ZxXFrYsnsKR0C6NDfvURG3qku7lKvhM-ufdyNWVol5ydGca3KjYtpjxgsHaHs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex flex-col justify-end p-8">
+<span class="text-tertiary-fixed text-xs font-bold tracking-[0.3em] uppercase mb-2">Igbo Kwenu</span>
+<h3 class="font-headline text-2xl text-white">The Igbo Edit</h3>
+<p class="text-white/70 text-sm mb-4">Igba Nkwu planners, bead makers, and traditional dancers.</p>
+<button class="w-fit text-white font-bold flex items-center gap-2 group-hover:gap-4 transition-all">Explore Traditions <span class="material-symbols-outlined">trending_flat</span></button>
+</div>
+</div>
+<!-- Hausa -->
+<div class="group relative h-80 rounded-3xl overflow-hidden">
+<img alt="Hausa Wedding" class="absolute inset-0 w-full h-full object-cover" data-alt="Detail of intricate henna (Lalle) designs on a bride's hands, set against rich Hausa traditional fabric and incense smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK8-4JgO9LxG2Oq5mckFbXPOvUzMq6NTjXfbzBsgO7cBEs5Qkrvg9IYN9Op2s8QORo-TxczlV7ueTdIX1_l6VYG_4wmpkgvJxt79hHy8CdS5tGTp6aOkncFCLpucKq3rSouSHHveoEwhKNfqWazFgIkvodXlXZim8leRCu6fxY00sGT-XQuP7aTyGBepUCPsoQg1ITXxL0foKKMHRinrB_dd8C8HqL6K5WSTJNijD-ffPY0-y2i-ujqeInoE-8aLly7sHyTQn_1zkw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex flex-col justify-end p-8">
+<span class="text-tertiary-fixed text-xs font-bold tracking-[0.3em] uppercase mb-2">Northern Elegance</span>
+<h3 class="font-headline text-2xl text-white">The Hausa Edit</h3>
+<p class="text-white/70 text-sm mb-4">Henna (Lalle) artists, Fatiha specialists, and Northern catering.</p>
+<button class="w-fit text-white font-bold flex items-center gap-2 group-hover:gap-4 transition-all">Explore Traditions <span class="material-symbols-outlined">trending_flat</span></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Profiles Bento -->
+<section class="mb-16">
+<h2 class="font-headline text-3xl text-primary mb-8">Featured Master Artisans</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-6 h-auto md:h-[600px]">
+<!-- Large Profile Card -->
+<div class="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-1 shadow-sm flex flex-col md:flex-row overflow-hidden border border-outline-variant/10">
+<div class="w-full md:w-1/2 h-64 md:h-full relative">
+<img alt="Lead Designer" class="w-full h-full object-cover" data-alt="Professional Nigerian wedding designer working on a moodboard with fabric swatches and flower samples in a bright, modern studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6uQRPxjfjLdmppm3D48kqUPB6KDu_FTAre3N0DnxLnccePdWuvCw84_GQO3RmYNayEmYcG-q_O1WG1viJz93dw_X1T5MevrPOOM7Sv0KIaQn6yF2B-Fimk5ju69C0Em1yCkBr-1P1xUt_bRP3HE7tfaSLmPZ6odUJbqnBM2RZh8_J-eyA1cKFvoaxk--eV0jLHF6oFXwH9pDUCEpCY6pPQXGUEHxsQ6PfJTeJXZlq_zmTLdQcRYwPdPcrFMT2x66yeq6mTiAt7QW1"/>
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+<div class="w-full md:w-1/2 p-10 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Top Rated</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h3 class="font-headline text-3xl text-primary mb-4 uppercase tracking-tighter">Oladunni <a href="event-list.html" style="text-decoration: none; color: inherit;">Events</a></h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Specializing in "Royal Fusion" weddings, Oladunni brings a mix of contemporary luxury and deep-rooted Yoruba tradition. Renowned for their majestic floral arches and bespoke reception choreography.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-3 text-primary/70">
+<span class="material-symbols-outlined">location_on</span>
+<span class="text-sm font-semibold">Victoria Island, Lagos</span>
+</div>
+<div class="flex gap-4 pt-4">
+<button class="bg-primary text-white px-6 py-3 rounded-xl font-bold flex-1">Reserve Date</button>
+<button class="border border-primary text-primary px-6 py-3 rounded-xl font-bold flex-1">View Portfolio</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="bg-surface-container-low rounded-3xl p-6 flex flex-col justify-between border border-outline-variant/5">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Avatar" data-alt="Portrait of a young professional photographer with a camera, focused expression and natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl2quDdOBQ4o0jf7SBnjudoRNvbfZri_I2eC9zmG12TdDfPyasitnue4bQ7YbWd4c_KXFBpWtflNSwOCsPQVmQ1x0OGueKroTBC6oNmVZdF80stn3K4Qg7ShHCM-AmicrsdL0QH2eYsNOV01oLbHbq48tPP4hjBAV0GdTK-BR4uHCNuXATKdFDSXvkx2rhJ0o67b5a2aeyM7QXONrqHxgK_PRb-h3DuKHkBlditVIGSwgy1NwqUsBQQCgyU-dcZcQ7FB8s_gdeXZvc"/>
+</div>
+<span class="material-symbols-outlined text-primary/30">verified</span>
+</div>
+<div>
+<h4 class="font-headline text-lg text-primary">Obi Photography</h4>
+<p class="text-xs text-on-surface-variant mb-4">Master of the "Naija Glow" lighting technique.</p>
+<button class="text-secondary font-bold text-sm flex items-center gap-1 group">
+                            Book Session <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</button>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="bg-surface-container-low rounded-3xl p-6 flex flex-col justify-between border border-outline-variant/5">
+<div class="flex justify-between items-start">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Avatar" data-alt="Hands of a professional DJ adjusting a high-end turntable at a vibrant party with neon background lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABUl2SbWj2puCVcaPYFPc2qiDUEw7lb2TK0j-r7TcC-5U87WK2HBPRPp6iDwe5fyPQ8YdQir8uQDGxmwdFcO-fiNIhA0BOFiCBz53wo7Ds9tI_YnWz_9EZz8utcrZJduW4sGFBSt_FAiRVEce8rp37hEXWlc2PlaWB99oJCUAD4AAk2cX7Jt6DGOP6BwFHTRq3en_m-YarndTjyEyx36IgJDyK5AjJOijHev27QVNJVYXAs-2y-Y8JgsFI3UqtuPgcyCG9QPq1o6sY"/>
+</div>
+<span class="material-symbols-outlined text-primary/30">verified</span>
+</div>
+<div>
+<h4 class="font-headline text-lg text-primary">DJ Sound-Lord</h4>
+<p class="text-xs text-on-surface-variant mb-4">Legendary for cross-generational Owambe mixes.</p>
+<button class="text-secondary font-bold text-sm flex items-center gap-1 group">
+                            Check Availability <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex justify-around items-center px-4 py-3 bg-[#fbf9f1]/80 dark:bg-[#1b1c17]/80 backdrop-blur-2xl w-[90%] max-w-md rounded-full border border-[#735c00]/15 shadow-[0_8px_32px_rgba(27,28,23,0.08)]">
+<a class="flex flex-col items-center justify-center text-[#002a58]/60 dark:text-[#fbf9f1]/60" href="#">
+<span class="material-symbols-outlined">celebration</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest mt-1">Ceremonies</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#735c00] dark:text-[#735c00] font-bold scale-110" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#002a58]/60 dark:text-[#fbf9f1]/60" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest mt-1">Planner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#002a58]/60 dark:text-[#fbf9f1]/60" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 bg-secondary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-40 hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined">search</span>
+</button>
+<!-- Footer -->
+<footer class="w-full py-8 bg-[#f5f4ec] dark:bg-[#1b1c17] flex flex-col md:flex-row justify-between items-center px-12 mt-auto border-t border-[#735c00]/10 font-['Manrope'] text-xs uppercase tracking-tighter">
+<span class="text-[#002a58]/50 dark:text-[#fbf9f1]/50 mb-4 md:mb-0">© 2024 The Royal Nuptial</span>
+<div class="flex gap-8">
+<a class="text-[#002a58]/50 dark:text-[#fbf9f1]/50 hover:text-[#a43c12] transition-colors" href="#">Cultural Guide</a>
+<a class="text-[#002a58]/50 dark:text-[#fbf9f1]/50 hover:text-[#a43c12] transition-colors" href="#">Directory</a>
+<a class="text-[#002a58]/50 dark:text-[#fbf9f1]/50 hover:text-[#a43c12] transition-colors" href="#">Legal</a>
+</div>
+</footer>
+</body></html>

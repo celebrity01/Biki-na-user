@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Select Your Big Day | Ariya Planner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#cca72f",
+              "secondary-fixed": "#ffdbcf",
+              "inverse-primary": "#a9c7ff",
+              "primary-container": "#004080",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#424750",
+              "primary": "#002a58",
+              "on-tertiary-fixed-variant": "#574500",
+              "outline": "#737781",
+              "on-primary-container": "#83aef5",
+              "background": "#fbf9f1",
+              "surface-variant": "#e4e3db",
+              "outline-variant": "#c3c6d2",
+              "tertiary-fixed": "#ffe088",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#0e4686",
+              "on-primary": "#ffffff",
+              "on-secondary-container": "#6b1f00",
+              "surface-tint": "#305ea0",
+              "surface-container-highest": "#e4e3db",
+              "secondary": "#a43c12",
+              "on-secondary-fixed-variant": "#822800",
+              "on-secondary-fixed": "#380c00",
+              "surface": "#fbf9f1",
+              "on-surface": "#1b1c17",
+              "on-tertiary-container": "#4e3d00",
+              "inverse-surface": "#30312c",
+              "surface-container-low": "#f5f4ec",
+              "surface-container-high": "#eae8e0",
+              "on-primary-fixed": "#001b3d",
+              "on-tertiary-fixed": "#241a00",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#d6e3ff",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "on-background": "#1b1c17",
+              "tertiary-fixed-dim": "#e9c349",
+              "secondary-fixed-dim": "#ffb59c",
+              "inverse-on-surface": "#f3f1e9",
+              "surface-dim": "#dcdad2",
+              "error": "#ba1a1a",
+              "secondary-container": "#fe7e4f",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f0eee6",
+              "surface-bright": "#fbf9f1",
+              "tertiary": "#735c00",
+              "primary-fixed-dim": "#a9c7ff"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .ankara-pattern {
+        background-color: #fbf9f1;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a43c12' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary/30 selection:text-secondary antialiased">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf9f1]/70 dark:bg-[#1b1c17]/70 backdrop-blur-xl shadow-sm">
+<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-serif italic text-[#002a58] dark:text-[#fbf9f1]">Ariya Planner</div>
+<div class="hidden md:flex items-center space-x-8 font-serif font-bold tracking-tight">
+<a class="text-[#002a58]/70 dark:text-[#fbf9f1]/70 hover:text-[#a43c12] transition-colors duration-300" href="#">Traditions</a>
+<a class="text-[#a43c12] border-b-2 border-[#a43c12] pb-1 font-bold" href="#">Calendar</a>
+<a class="text-[#002a58]/70 dark:text-[#fbf9f1]/70 hover:text-[#a43c12] transition-colors duration-300" href="#">Milestones</a>
+<a class="text-[#002a58]/70 dark:text-[#fbf9f1]/70 hover:text-[#a43c12] transition-colors duration-300" href="#">Gallery</a>
+</div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-4 text-[#002a58] dark:text-[#fbf9f1]">
+<button class="active:scale-95 transition-transform"><span class="material-symbols-outlined">notifications</span></button>
+<button class="active:scale-95 transition-transform"><span class="material-symbols-outlined">language</span></button>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-xl font-bold active:scale-95 transition-all">RSVP</button>
+</div>
+</nav>
+</header>
+<main class="pt-24 pb-32 min-h-screen ankara-pattern">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Hero Title Section -->
+<div class="mb-12 text-center md:text-left">
+<span class="text-tertiary font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Step 02 — Date Selection</span>
+<h1 class="text-5xl md:text-7xl font-headline font-bold text-primary mb-6 leading-tight">Pick Your <br/><span class="italic text-secondary">Ariya</span> Moment</h1>
+<p class="max-w-xl text-on-surface-variant text-lg">Every great celebration begins with the right time. Select the date that marks the beginning of your forever.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Calendar Section: Bento-style focus -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-[2rem] p-8 shadow-sm relative overflow-hidden group">
+<!-- Subtle pattern overlay -->
+<div class="absolute top-0 right-0 w-64 h-64 opacity-10 pointer-events-none rotate-12 -mr-20 -mt-20">
+<svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M44.7,-76.4C58.3,-69.2,70,-58,78.5,-44.6C87,-31.2,92.3,-15.6,91.3,-0.6C90.3,14.4,83,28.8,73.5,41.4C64,54,52.3,64.8,39,72.7C25.7,80.5,10.8,85.4,-3.9,92.2C-18.6,98.9,-33.2,107.5,-45.5,103.5C-57.8,99.5,-67.8,82.9,-75.4,67.6C-83.1,52.3,-88.4,38.3,-91.1,23.9C-93.8,9.5,-93.8,-5.3,-89.9,-19.1C-86,-32.9,-78.2,-45.7,-67.2,-55.1C-56.1,-64.5,-41.8,-70.5,-27.9,-77.5C-14,-84.5,-0.5,-92.5,13.1,-90.1C26.7,-87.7,31.1,-83.6,44.7,-76.4Z" fill="#a43c12" transform="translate(100 100)"></path>
+</svg>
+</div>
+<div class="flex justify-between items-center mb-10">
+<div class="flex items-center gap-4">
+<h2 class="text-3xl font-headline font-bold text-primary">December 2024</h2>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Wedding Season</span>
+</div>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-90">
+<span class="material-symbols-outlined text-primary">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-90">
+<span class="material-symbols-outlined text-primary">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-y-8 gap-x-2 text-center">
+<!-- Days Header -->
+<div class="text-tertiary font-bold text-xs uppercase tracking-widest mb-4">Sun</div>
+<div class="text-tertiary font-bold text-xs uppercase tracking-widest mb-4">Mon</div>
+<div class="text-tertiary font-bold text-xs uppercase tracking-widest mb-4">Tue</div>
+<div class="text-tertiary font-bold text-xs uppercase tracking-widest mb-4">Wed</div>
+<div class="text-tertiary font-bold text-xs uppercase tracking-widest mb-4">Thu</div>
+<div class="text-tertiary font-bold text-xs uppercase tracking-widest mb-4">Fri</div>
+<div class="text-tertiary font-bold text-xs uppercase tracking-widest mb-4">Sat</div>
+<!-- Calendar Days Grid -->
+<div class="h-16 flex items-center justify-center text-on-surface-variant/30">26</div>
+<div class="h-16 flex items-center justify-center text-on-surface-variant/30">27</div>
+<div class="h-16 flex items-center justify-center text-on-surface-variant/30">28</div>
+<div class="h-16 flex items-center justify-center text-on-surface-variant/30">29</div>
+<div class="h-16 flex items-center justify-center text-on-surface-variant/30">30</div>
+<div class="h-16 flex items-center justify-center relative font-semibold">
+<span class="z-10">1</span>
+</div>
+<div class="h-16 flex items-center justify-center relative font-semibold">
+<span class="z-10">2</span>
+</div>
+<!-- Row 2 -->
+<div class="h-16 flex items-center justify-center font-semibold">3</div>
+<div class="h-16 flex items-center justify-center font-semibold">4</div>
+<div class="h-16 flex items-center justify-center font-semibold">5</div>
+<div class="h-16 flex items-center justify-center font-semibold">6</div>
+<div class="h-16 flex items-center justify-center font-semibold">7</div>
+<div class="h-16 flex items-center justify-center font-semibold">8</div>
+<div class="h-16 flex items-center justify-center font-semibold">9</div>
+<!-- Row 3 -->
+<div class="h-16 flex items-center justify-center font-semibold">10</div>
+<div class="h-16 flex items-center justify-center font-semibold">11</div>
+<div class="h-16 flex items-center justify-center font-semibold">12</div>
+<div class="h-16 flex items-center justify-center font-semibold">13</div>
+<!-- Selected Day -->
+<div class="h-16 flex items-center justify-center relative group/day cursor-pointer">
+<div class="absolute inset-0 bg-secondary rounded-2xl rotate-3 shadow-lg shadow-secondary/20"></div>
+<span class="z-10 text-on-secondary font-bold text-xl">14</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-tertiary-fixed rounded-full shadow-sm"></div>
+</div>
+<div class="h-16 flex items-center justify-center font-semibold">15</div>
+<div class="h-16 flex items-center justify-center font-semibold">16</div>
+<!-- Row 4 with specific markers -->
+<div class="h-16 flex items-center justify-center font-semibold">17</div>
+<div class="h-16 flex items-center justify-center font-semibold">18</div>
+<div class="h-16 flex items-center justify-center font-semibold">19</div>
+<div class="h-16 flex items-center justify-center font-semibold cursor-pointer hover:bg-surface-container-low rounded-2xl transition-all">20</div>
+<div class="h-16 flex items-center justify-center relative group/marker">
+<span class="z-10 font-bold text-primary">21</span>
+<div class="absolute bottom-2 w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<!-- Tooltip hint -->
+<div class="absolute bottom-full mb-2 hidden group-hover/marker:block bg-primary text-white text-[10px] px-2 py-1 rounded-md whitespace-nowrap">Aso-Ebi Fitting</div>
+</div>
+<div class="h-16 flex items-center justify-center font-semibold">22</div>
+<div class="h-16 flex items-center justify-center font-semibold">23</div>
+</div>
+</div>
+<!-- Info and Legend Section -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Event Summary Card -->
+<div class="bg-primary text-on-primary rounded-[2rem] p-8 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline text-2xl mb-6">Saturday, Dec 14</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">location_on</span>
+<div>
+<p class="font-bold">Eko Hotel &amp; Suites</p>
+<p class="text-sm opacity-70">Victoria Island, Lagos</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">groups</span>
+<div>
+<p class="font-bold">500+ Guests Expected</p>
+<p class="text-sm opacity-70">Large Capacity Hall</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-10 bg-on-primary text-primary font-bold py-4 rounded-xl hover:bg-secondary-fixed transition-colors active:scale-95">Confirm Selection</button>
+</div>
+<!-- Background Ankara Accent -->
+<div class="absolute bottom-0 right-0 opacity-10 w-40 h-40">
+<svg class="fill-current" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="40" stroke="white" stroke-width="2"></circle>
+<path d="M50 10 L50 90 M10 50 L90 50" stroke="white" stroke-width="1"></path>
+<rect fill="none" height="40" stroke="white" width="40" x="30" y="30"></rect>
+</svg>
+</div>
+</div>
+<!-- Cultural Insight Bento -->
+<div class="bg-surface-container-low rounded-[2rem] p-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-tertiary">info</span>
+<h4 class="font-bold text-primary">Harmattan Bliss</h4>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">
+                            December is the peak of Nigerian wedding season. The cool Harmattan breeze and festive air make it the perfect time for an outdoor garden ceremony or a grand ballroom gala.
+                        </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-outline-variant/10">
+<p class="text-xs font-bold text-tertiary uppercase">Sun Factor</p>
+<p class="text-xl font-headline font-bold">100%</p>
+</div>
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-outline-variant/10">
+<p class="text-xs font-bold text-tertiary uppercase">RSVP Rate</p>
+<p class="text-xl font-headline font-bold">High</p>
+</div>
+</div>
+</div>
+<!-- Image/Moodboard Card -->
+<div class="rounded-[2rem] overflow-hidden h-48 relative shadow-lg">
+<img alt="Nigerian Traditional Wedding Decor" class="w-full h-full object-cover" data-alt="Stunning Nigerian traditional wedding reception with lush floral arrangements and rich blue and orange drapery under warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwkD1Wz7RH0M65q8lEKLIocVB26iUw883ACR1LlD1e1vPP6v2xd7_2N__DRrEd0NHsoP7YDI9alGEnNfDco4F_BdN8x-Xq_MDy8DvljgXgWawYZzXB1KH2CSbhA8vv3Qwssjbl8JVunvQWXdqIzXfe_xE2Znc8RMPhm5zRcEn_uPXy5MHJsGik4fgPfyMOglu7yIKeHz8TjbUyitXtDlJrBXM2A-FCVKPAMLWSNOxVKgJEsMG5aIeT_U1eFJ_wI577gYF3Vt6IzlVF"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+<span class="text-white font-headline text-lg italic">Inspiration: Royal Lagos Blue</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-6 pt-3 bg-[#fbf9f1] dark:bg-[#1b1c17] shadow-[0_-8px_32px_rgba(0,0,0,0.08)] rounded-t-3xl md:hidden">
+<a class="flex flex-col items-center justify-center text-[#735c00] dark:text-[#fbf9f1]/60 p-2 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-sans text-xs uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#a43c12]/10 text-[#a43c12] rounded-2xl p-2 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-sans text-xs uppercase tracking-widest mt-1">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#735c00] dark:text-[#fbf9f1]/60 p-2 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">celebration</span>
+<span class="font-sans text-xs uppercase tracking-widest mt-1">Events</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#735c00] dark:text-[#fbf9f1]/60 p-2 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-sans text-xs uppercase tracking-widest mt-1">Profile</span>
+</a>
+</footer>
+</body></html>

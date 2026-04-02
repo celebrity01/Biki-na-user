@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ariya Planner - Event List (Naija Royal)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#fbf9f1",
+              "surface-dim": "#dcdad2",
+              "background": "#fbf9f1",
+              "inverse-primary": "#a9c7ff",
+              "on-surface-variant": "#424750",
+              "on-tertiary-fixed": "#241a00",
+              "tertiary-container": "#cca72f",
+              "surface-container-high": "#eae8e0",
+              "on-primary-fixed": "#001b3d",
+              "on-background": "#1b1c17",
+              "surface-container-low": "#f5f4ec",
+              "on-primary": "#ffffff",
+              "on-surface": "#1b1c17",
+              "surface-variant": "#e4e3db",
+              "inverse-surface": "#30312c",
+              "secondary-fixed": "#ffdbcf",
+              "outline-variant": "#c3c6d2",
+              "primary": "#002a58",
+              "surface-container": "#f0eee6",
+              "on-tertiary": "#ffffff",
+              "secondary": "#a43c12",
+              "on-tertiary-container": "#4e3d00",
+              "outline": "#737781",
+              "primary-fixed": "#d6e3ff",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#380c00",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#ffb59c",
+              "error-container": "#ffdad6",
+              "secondary-container": "#fe7e4f",
+              "primary-fixed-dim": "#a9c7ff",
+              "on-secondary-fixed-variant": "#822800",
+              "on-secondary": "#ffffff",
+              "tertiary": "#735c00",
+              "on-secondary-container": "#6b1f00",
+              "error": "#ba1a1a",
+              "surface": "#fbf9f1",
+              "inverse-on-surface": "#f3f1e9",
+              "surface-container-highest": "#e4e3db",
+              "tertiary-fixed-dim": "#e9c349",
+              "surface-tint": "#305ea0",
+              "on-tertiary-fixed-variant": "#574500",
+              "on-primary-container": "#83aef5",
+              "tertiary-fixed": "#ffe088",
+              "primary-container": "#004080",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#0e4686"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+      }
+      .click-bounce-effect:active { transform: scale(0.95); }
+      .ankara-pattern {
+        background-image: radial-gradient(circle at 2px 2px, #002a58 1px, transparent 0);
+        background-size: 24px 24px;
+        opacity: 0.05;
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar Implementation from JSON -->
+<nav class="bg-[#fbf9f1] dark:bg-slate-950 backdrop-blur-xl bg-opacity-70 flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto fixed top-0 left-0 z-50">
+<div class="text-2xl font-['Noto_Serif'] font-black text-[#002a58] dark:text-blue-400">Ariya Planner</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#002a58] dark:text-blue-200 opacity-80 font-['Noto_Serif'] text-lg font-bold tracking-tight hover:text-[#a43c12] transition-colors duration-300 scale-95 active:opacity-80 transition-transform" href="#">My Wedding</a>
+<a class="text-[#002a58] dark:text-blue-200 opacity-80 font-['Noto_Serif'] text-lg font-bold tracking-tight hover:text-[#a43c12] transition-colors duration-300 scale-95 active:opacity-80 transition-transform" href="#">Marketplace</a>
+<a class="text-[#a43c12] border-b-2 border-[#a43c12] pb-1 font-bold font-['Noto_Serif'] text-lg tracking-tight scale-95 active:opacity-80 transition-transform" href="#">Traditional Planner</a>
+<a class="text-[#002a58] dark:text-blue-200 opacity-80 font-['Noto_Serif'] text-lg font-bold tracking-tight hover:text-[#a43c12] transition-colors duration-300 scale-95 active:opacity-80 transition-transform" href="#"><a href="guest-list.html" style="text-decoration: none; color: inherit;">Guest List</a></a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#002a58] text-2xl" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-[#002a58] text-2xl" data-icon="account_circle">account_circle</button>
+</div>
+</nav>
+<!-- SideNavBar Implementation from JSON -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 z-40 bg-[#f5f4ec] dark:bg-slate-900 h-screen w-64 border-r-0 shadow-xl shadow-black/5 mt-16 md:mt-0">
+<div class="px-6 mb-8 pt-10">
+<div class="flex items-center gap-3 mb-4">
+<img alt="User Profile" class="w-10 h-10 rounded-full bg-surface-container-high" data-alt="professional headshot of a stylish Nigerian wedding curator in traditional attire, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmkwtSPL-lrrDNtew7XAY34HaeW6dzlLzQ7VsZWiLRl1L6SOmwbKOOixCk346F9WwyXlxwqzNIeM4iOGav3YTqj8SvKe2qMFAcymo2Z3xNMMtIHHcWP-cHZ_sHBbR5E7MANrzhb0qvWQp073mOJjCbcaFv7vow3YwUqmwtsFaYeufgmILWgVZwtYevXb_CgAPEcrEm-dvH4D3erMDJ_oXMiBO3YZOzgY53nHwNLHmhHpLcsz1Bel96m7Q8XU2X9eAFBdE9ZI-K9EQp"/>
+<div>
+<p class="text-xl font-['Noto_Serif'] font-bold text-[#735c00]">Welcome, Curator</p>
+<p class="text-xs text-outline font-medium">Managing your Owanbe</p>
+</div>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:translate-x-1 transition-all duration-200 click-bounce-effect shadow-md">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Plan New Event
+            </button>
+</div>
+<nav class="flex-1 flex flex-col gap-1 pr-4">
+<a class="flex items-center gap-4 py-3 px-6 text-[#002a58] dark:text-slate-400 hover:bg-[#fbf9f1]/50 font-['Manrope'] text-sm font-medium hover:translate-x-1 transition-all duration-200 click-bounce-effect" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-4 py-3 px-6 bg-[#ffffff] dark:bg-slate-800 text-[#a43c12] rounded-r-full font-bold shadow-sm font-['Manrope'] text-sm hover:translate-x-1 transition-all duration-200 click-bounce-effect" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span> Traditional Events
+            </a>
+<a class="flex items-center gap-4 py-3 px-6 text-[#002a58] dark:text-slate-400 hover:bg-[#fbf9f1]/50 font-['Manrope'] text-sm font-medium hover:translate-x-1 transition-all duration-200 click-bounce-effect" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span> Vendor Bazaar
+            </a>
+<a class="flex items-center gap-4 py-3 px-6 text-[#002a58] dark:text-slate-400 hover:bg-[#fbf9f1]/50 font-['Manrope'] text-sm font-medium hover:translate-x-1 transition-all duration-200 click-bounce-effect" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span> Budget Tracker
+            </a>
+<a class="flex items-center gap-4 py-3 px-6 text-[#002a58] dark:text-slate-400 hover:bg-[#fbf9f1]/50 font-['Manrope'] text-sm font-medium hover:translate-x-1 transition-all duration-200 click-bounce-effect" href="#">
+<span class="material-symbols-outlined" data-icon="language">language</span> Language Settings
+            </a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-0 md:ml-64 pt-24 pb-12 px-6 md:px-10">
+<!-- Hero Section & Heritage Selector -->
+<header class="mb-12 relative overflow-hidden rounded-3xl bg-primary p-12 text-on-primary">
+<div class="absolute inset-0 ankara-pattern"></div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="max-w-2xl">
+<span class="text-tertiary-fixed font-bold tracking-widest uppercase text-xs mb-3 block">Cultural Masterplan</span>
+<h1 class="font-headline text-5xl font-black mb-4">Naija Royal Nuptials</h1>
+<p class="text-primary-fixed opacity-90 text-lg leading-relaxed font-body">Manage the sacred milestones of your heritage. Coordinate the rites that bind families and celebrate a legacy of love.</p>
+</div>
+<div class="flex bg-surface-container-low/20 backdrop-blur-md p-1.5 rounded-2xl">
+<button class="px-6 py-3 rounded-xl bg-white text-primary font-bold shadow-lg transition-all duration-300">Yoruba Rites</button>
+<button class="px-6 py-3 rounded-xl text-white font-medium hover:bg-white/10 transition-all duration-300">Igbo Ceremonies</button>
+<button class="px-6 py-3 rounded-xl text-white font-medium hover:bg-white/10 transition-all duration-300">Northern Elegance</button>
+</div>
+</div>
+</header>
+<!-- Stats Overview (Asymmetric) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="md:col-span-1 bg-surface-container-lowest p-6 rounded-3xl shadow-sm border border-outline-variant/10 flex flex-col justify-between min-h-[160px]">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="event_available">event_available</span>
+<span class="bg-secondary-container/20 text-on-secondary-container text-xs font-bold px-2 py-1 rounded-lg">LIVE</span>
+</div>
+<div>
+<h4 class="text-3xl font-headline font-black text-primary">03 / 09</h4>
+<p class="text-outline text-sm font-medium">Milestones Secured</p>
+</div>
+</div>
+<div class="md:col-span-3 bg-tertiary-container/10 p-6 rounded-3xl border border-tertiary/10 flex items-center justify-between">
+<div class="flex gap-6 items-center">
+<div class="w-16 h-16 rounded-2xl bg-tertiary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl" data-icon="featured_seasonal_and_gifts">featured_seasonal_and_gifts</span>
+</div>
+<div>
+<h4 class="text-xl font-headline font-bold text-tertiary">Aso Ebi Distribution</h4>
+<p class="text-on-tertiary-container/70 text-sm">75% of guests have confirmed their fabric pick-up for the engagement.</p>
+</div>
+</div>
+<button class="bg-tertiary text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-shadow">Track Fabrics</button>
+</div>
+</section>
+<!-- Main Event List (Bento Grid Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Milestone Card 1: Ido-Oba -->
+<div class="group bg-surface-container-lowest rounded-3xl p-1 shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-secondary/20">
+<div class="relative h-48 rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close-up of ornate traditional Nigerian engagement letter and kola nuts on a golden tray with vibrant Aso-Oke fabric background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALX3-U9ju34MeqyHp8WhB0VI8Rkg57HYmX8-X5l-8VqCgoRB__F9txrjr6_vqkhWTkjchGJFVQvBtTo183HvezbYRrVFy3ULBWAA83ohjMIuX5GwS5ZgY_0zBDPedYh41dvbnGJ63HChJ_gq07XZGRMjBNwyooXBJqPFVSpmtsnbLzpu15iNgW2ZpGadiT2AFJ9YqlylQvvFChISvDSftxvXj-sFjYoQFcCAGG-yA9Bkk8CAIYKAhf2IThjDW7EtVP6LV62-0XI8a-"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full backdrop-blur-sm">Yoruba Traditional</span>
+</div>
+<div class="absolute bottom-4 right-4">
+<span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Secured
+                        </span>
+</div>
+</div>
+<div class="px-6 pb-6">
+<h3 class="font-headline text-2xl font-bold text-primary mb-2"><a href="ceremony-detail.html" style="text-decoration: none; color: inherit;">Ido-Oba</a> (Introduction)</h3>
+<p class="text-outline text-sm mb-6 leading-relaxed">The formal meeting of both families to signify intent and begin the journey of union.</p>
+<div class="mb-6">
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-primary/70">TASKS COMPLETED</span>
+<span class="text-secondary">100%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-full h-full bg-secondary"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-3 px-4 bg-surface-container text-primary font-bold rounded-xl text-sm hover:bg-primary hover:text-white transition-colors duration-300">Manage Detail</button>
+<button class="w-12 h-12 flex items-center justify-center bg-surface-container-low text-primary rounded-xl hover:bg-secondary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Milestone Card 2: Eru Iyawo -->
+<div class="group bg-surface-container-lowest rounded-3xl p-1 shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-secondary/20">
+<div class="relative h-48 rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="vibrant collection of traditional wedding gift boxes, wrapped in orange and blue fabrics with gold beads and floral arrangements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh4PrtP6bNt93r4qydETUGgS6ixzRmZPfW8Yj2aWe-b6WhvtaMcHeTmIG0x9b4Zn7pVTSBbYVtq1BOESd_T5_2BpQOCLbkwFJRjPHoOUOUxXsLZicBS3Es9aZDKoBlm7vb9hOFIGMLTF8KrLTNctBRKKbKgH8_NGBRzv2Pk03vdXDLBFxaETftvtiKf2DmEhHlTpEgBwQVzlhPfagDx1OEMkonnhHQDxr4ZJ7G9eL1WnDWEZstrDifvK3nH9Hy9dUOx5j-gw6HP-Wt"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full backdrop-blur-sm">Yoruba Traditional</span>
+</div>
+<div class="absolute bottom-4 right-4">
+<span class="bg-secondary-container text-on-secondary-container text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="pending">pending</span>
+                            In Progress
+                        </span>
+</div>
+</div>
+<div class="px-6 pb-6">
+<h3 class="font-headline text-2xl font-bold text-primary mb-2">Eru Iyawo (Engagement)</h3>
+<p class="text-outline text-sm mb-6 leading-relaxed">The vibrant display of love through gifts, music, and the sacred reading of letters.</p>
+<div class="mb-6">
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-primary/70">TASKS COMPLETED</span>
+<span class="text-secondary">45%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[45%] h-full bg-secondary"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-3 px-4 bg-secondary text-on-secondary font-bold rounded-xl text-sm hover:bg-on-secondary-container transition-colors duration-300">Manage Detail</button>
+<button class="w-12 h-12 flex items-center justify-center bg-surface-container-low text-primary rounded-xl hover:bg-secondary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="add_task">add_task</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Milestone Card 3: Alaga Rites -->
+<div class="group bg-surface-container-lowest rounded-3xl p-1 shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-secondary/20">
+<div class="relative h-48 rounded-2xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close-up of a traditional Alaga Ijoko microphone and ceremonial staff, soft bokeh of dancing guests in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-LHrXbOvrMQZ-qb0b5eQ7CViSocC6xoJpX4dPywfdSP6Y-YOBW2x_D7KcOIFRxbZFKMWhNVPjJ35XJSy95oXOLDt3xS2aX8lb3kreKWXUpkSH71sdlsnVVzZXg_xcf2GHHEPaS4GTB0YmPE5iyiniLw3h5HLMygs6g0tfGlNMJaM20Jjs5lTFwrgR7BriLcG6gpz8lKUxARkqAmBfkzkQAO5tRH8qp4nnP1Ezgfd3qYYW4m0AQJaoi-1xhcDFOJOGcgL-afCP6jmQ"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full backdrop-blur-sm">Yoruba Traditional</span>
+</div>
+<div class="absolute bottom-4 right-4">
+<span class="bg-surface-variant text-on-surface-variant text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                            Not Started
+                        </span>
+</div>
+</div>
+<div class="px-6 pb-6">
+<h3 class="font-headline text-2xl font-bold text-primary mb-2">Alaga Rites</h3>
+<p class="text-outline text-sm mb-6 leading-relaxed">Securing the mistresses of ceremony to choreograph the ritual dialogue between families.</p>
+<div class="mb-6">
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-primary/70">TASKS COMPLETED</span>
+<span class="text-secondary">0%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-0 h-full bg-secondary"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-3 px-4 bg-surface-container text-primary font-bold rounded-xl text-sm hover:bg-primary hover:text-white transition-colors duration-300">Manage Detail</button>
+<button class="w-12 h-12 flex items-center justify-center bg-surface-container-low text-primary rounded-xl hover:bg-secondary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="post_add">post_add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Custom Add Card (Asymmetric element) -->
+<div class="md:col-span-1 bg-surface-container-low rounded-3xl border-2 border-dashed border-outline-variant p-8 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-white hover:border-secondary transition-all duration-300">
+<div class="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-4xl" data-icon="add_circle">add_circle</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Add Custom Milestone</h3>
+<p class="text-outline text-sm">Personalize your journey with unique family traditions or specific sub-rites.</p>
+</div>
+<!-- Heritage Info Card (Glassmorphism inspired) -->
+<div class="md:col-span-2 relative rounded-3xl overflow-hidden bg-tertiary-container/20 p-10 flex flex-col justify-end">
+<div class="absolute top-0 right-0 p-8 opacity-20">
+<span class="material-symbols-outlined text-[120px]" data-icon="auto_stories">auto_stories</span>
+</div>
+<div class="relative z-10 max-w-lg">
+<h3 class="font-headline text-2xl font-bold text-tertiary mb-4">Did you know?</h3>
+<p class="text-on-tertiary-container leading-relaxed mb-6">The 'Eru Iyawo' list is not just about gifts; it’s a symbolic representation of the groom's commitment to provide for and cherish the bride's family legacy. Each item has a specific cultural weight.</p>
+<button class="flex items-center gap-2 text-tertiary font-bold border-b-2 border-tertiary pb-1 hover:gap-4 transition-all duration-300">
+                        Read Heritage Guide
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sticky Floating Action Button (Only on relevant screens) -->
+<button class="fixed bottom-8 right-8 bg-secondary text-on-secondary px-8 py-4 rounded-full shadow-2xl flex items-center gap-3 font-bold hover:scale-105 transition-transform z-50 click-bounce-effect">
+<span class="material-symbols-outlined" data-icon="inventory" style="font-variation-settings: 'FILL' 1;">inventory</span>
+            Manage Aso Ebi Guests
+        </button>
+</main>
+<!-- Bottom Separation (Heritage Motif) -->
+<div class="w-full h-12 flex items-center justify-center opacity-10 pointer-events-none mb-12">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-4xl" data-icon="grid_view">grid_view</span>
+<span class="material-symbols-outlined text-4xl" data-icon="grid_view">grid_view</span>
+<span class="material-symbols-outlined text-4xl" data-icon="grid_view">grid_view</span>
+</div>
+</div>
+</body></html>
